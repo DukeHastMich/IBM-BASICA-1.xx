@@ -3361,10 +3361,12 @@ L_1C5F:
     mov    bx,WORD PTR ds:TEMP2                  # 1C68: 8B 1E 52 03
     call   SYNCHR                                # 1C6C: E8 85 11
     .byte '('                                  # 1C6F: 28 -- SYNCHR inline operand
-    .byte 0x32 # 1C70 -- decoded continuation: xor    al,al
-    rcl    BYTE PTR [bx+si+0x53],0x87            # 1C71: C0 50 53 87
-    fidiv  DWORD PTR [bx+si-0x5d80]              # 1C75: DA B0 80 A2
-    cmp    WORD PTR [bp+di],ax                   # 1C79: 39 03
+    .byte 0x32, 0xC0                            # 1C70: XOR AL,AL; historical direction-bit encoding
+    push   ax                                     # 1C72: 50
+    push   bx                                     # 1C73: 53
+    xchg   dx,bx                                  # 1C74: 87 DA
+    mov    al,0x80                                # 1C76: B0 80
+    mov    ds:SUBFLG,al                           # 1C78: A2 39 03
     call   PTRGET                                # 1C7B: E8 F0 1A
     xchg   dx,bx                                 # 1C7E: 87 DA
     pop    si                                    # 1C80: 5E
@@ -3646,9 +3648,9 @@ L_1EA6:
     push   dx                                    # 1EA8: 52
     call   SYNCHR                                # 1EA9: E8 48 0F
     .byte ','                                  # 1EAC: 2C -- SYNCHR inline operand
-    .byte 0xE8 # 1EAD -- decoded continuation: call   0x1f1c
-    ins    BYTE PTR es:[di],dx                   # 1EAE: 6C
-    add    BYTE PTR [bp+si-0x61],bl              # 1EAF: 00 5A 9F
+    call   GETBYT                                # 1EAD: E8 6C 00
+    pop    dx                                     # 1EB0: 5A
+    lahf                                          # 1EB1: 9F
     xchg   ah,al                                 # 1EB2: 86 C4
     push   ax                                    # 1EB4: 50
     xchg   ah,al                                 # 1EB5: 86 C4
@@ -3667,9 +3669,9 @@ L_1ECA:
     push   ax                                    # 1ED0: 50
     call   SYNCHR                                # 1ED1: E8 20 0F
     .byte ','                                  # 1ED4: 2C -- SYNCHR inline operand
-    .byte 0xE8 # 1ED5 -- decoded continuation: call   0x1f1c
-    inc    sp                                    # 1ED6: 44
-    add    BYTE PTR [bx+si+0x53],bl              # 1ED7: 00 58 53
+    call   GETBYT                                # 1ED5: E8 44 00
+    pop    ax                                     # 1ED8: 58
+    push   bx                                     # 1ED9: 53
     push   dx                                    # 1EDA: 52
     call   GET_FILE_BLOCK                                # 1EDB: E8 C7 20
     call   L_5913                                # 1EDE: E8 32 3A
@@ -5337,11 +5339,10 @@ L_2AC6:
 L_2AD0:
     call   SYNCHR                                # 2AD0: E8 21 03
     .byte '('                                  # 2AD3: 28 -- SYNCHR inline operand
-    .byte 0xE8 # 2AD4 -- decoded continuation: call   0x376e
-    xchg   di,ax                                 # 2AD5: 97
-    or     al,0xe8                               # 2AD6: 0C E8
-    popa                                         # 2AD8: 61
-    cmp    WORD PTR [bp+di+0x52],dx              # 2AD9: 39 53 52
+    call   PTRGET                                # 2AD4: E8 97 0C
+    call   L_643B                                # 2AD7: E8 61 39
+    push   bx                                     # 2ADA: 53
+    push   dx                                     # 2ADB: 52
     xchg   dx,bx                                 # 2ADC: 87 DA
     inc    bx                                    # 2ADE: 43
     mov    dx,WORD PTR [bx]                      # 2ADF: 8B 17
@@ -10115,10 +10116,9 @@ L_538F:
 L_53AB:
     call   SYNCHR                                # 53AB: E8 46 DA
     .byte ','                                  # 53AE: 2C -- SYNCHR inline operand
-    .byte 0x3C # 53AF -- decoded continuation: cmp    al,0x2c
-    sub    al,0x74                               # 53B0: 2C 74
-    .byte 0x13, 0xE8 # 53B2
-    retfd                                        # 53B4: 66 CB
+    cmp    al,0x2c                                # 53AF: 3C 2C
+    je     L_53C6                                # 53B1: 74 13
+    call   GETBYT                                # 53B3: E8 66 CB
     cmp    al,0x10                               # 53B6: 3C 10
     jb     L_53BD                                # 53B8: 72 03
 L_53BA:
@@ -10129,11 +10129,10 @@ L_53BD:
     push   cx                                    # 53C0: 51
     call   CHRGT2                                # 53C1: E8 5A BB
     je     L_53D7                                # 53C4: 74 11
+L_53C6:
     call   SYNCHR                                # 53C6: E8 2B DA
     .byte ','                                  # 53C9: 2C -- SYNCHR inline operand
-    .byte 0xE8 # 53CA -- decoded continuation: call   0x1f1c
-    dec    di                                    # 53CB: 4F
-    retf                                         # 53CC: CB
+    call   GETBYT                                # 53CA: E8 4F CB
     .byte 0x3C, 0x10, 0x73, 0xE9, 0x59, 0x5A, 0x8A, 0xD0, 0x52, 0x51 # 53CD
 L_53D7:
     pop    cx                                    # 53D7: 59
@@ -10389,11 +10388,12 @@ L_55E2:
     je     L_55F1                                # 55E7: 74 08
     call   SYNCHR                                # 55E9: E8 08 D8
     .byte TOK_OFF                              # 55EC: DD -- SYNCHR inline operand
-    .byte 0x32 # 55ED -- decoded continuation: xor    al,al
-    shr    bl,0x5                                # 55EE: C0 EB 05
+    .byte 0x32, 0xC0                            # 55ED: XOR AL,AL; historical direction-bit encoding
+    jmp    L_55F6                                # 55EF: EB 05
 L_55F1:
     call   CHRGTR                                # 55F1: E8 29 B9
     mov    al,0xff                               # 55F4: B0 FF
+L_55F6:
     mov    ds:PEN_ENABLED,al                            # 55F6: A2 34 00
     ret                                          # 55F9: C3
 PENF:
@@ -10488,11 +10488,12 @@ L_56FA:
     je     L_5709                                # 56FF: 74 08
     call   SYNCHR                                # 5701: E8 F0 D6
     .byte TOK_OFF                              # 5704: DD -- SYNCHR inline operand
-    .byte 0x32 # 5705 -- decoded continuation: xor    al,al
-    shr    bl,0x5                                # 5706: C0 EB 05
+    .byte 0x32, 0xC0                            # 5705: XOR AL,AL; historical direction-bit encoding
+    jmp    L_570E                                # 5707: EB 05
 L_5709:
     call   CHRGTR                                # 5709: E8 11 B8
     mov    al,0xff                               # 570C: B0 FF
+L_570E:
     mov    ds:STRIG_ENABLED,al                            # 570E: A2 45 00
     ret                                          # 5711: C3
 STRIGF:
