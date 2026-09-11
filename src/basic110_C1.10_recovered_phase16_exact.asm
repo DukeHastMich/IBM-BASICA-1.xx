@@ -4207,8 +4207,7 @@ RESEQ:
 L_22F1:
     call   SYNCHR                                # 22F1: E8 00 0B
     .byte ','                                  # 22F4: 2C -- SYNCHR inline operand
-    .byte 0xE8 # 22F5 -- decoded continuation: call   0x105e
-    in     eax,dx                                # 22F6: 66 ED
+    call   L_105E                                # 22F5: E8 66 ED
     je     L_2317                                # 22F8: 74 1D
     pop    ax                                    # 22FA: 58
     call   SYNCHR                                # 22FB: E8 F6 0A
