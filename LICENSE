@@ -1,0 +1,43 @@
+Mixed-license repository
+========================
+
+This repository contains both project-authored material and reconstructed
+historical program content. A single repository-wide open-source license does
+not apply to every file.
+
+1. Project-authored material
+----------------------------
+
+Except where a file or section states otherwise, original material created for
+this recovery project is licensed under the MIT License in LICENSE-MIT. This
+includes the project's build and verification scripts, original recovery
+documentation, analysis, annotations, and project-created data to the extent
+those materials are copyrightable and do not reproduce third-party content.
+
+2. Historical IBM/Microsoft program content
+--------------------------------------------
+
+The reconstructed IBM Cassette BASIC C1.10 program content, including the
+instruction stream, tables, strings, constants, and any byte-exact ROM image
+produced from it, is NOT licensed under the MIT License by this project.
+
+In particular, src/basic110_C1.10_recovered_phase16_exact.asm is excluded from
+the repository-wide MIT grant as a complete work because it reconstructs
+historical IBM/Microsoft program content. Project-authored comments, semantic
+labels, and annotations within that file are MIT-licensed only to the extent
+they are separately copyrightable and separable from the historical program
+content.
+
+No license statement in this repository grants rights in IBM, Microsoft, or
+other third-party copyrights, trademarks, or other intellectual property.
+
+3. ROM images
+-------------
+
+Reference ROM images are not tracked in the Git repository. Build output with
+.rom or .bin extensions is ignored. If a user supplies a reference ROM for
+verification, that file remains outside the project's license grant.
+
+See COPYRIGHT_AND_LICENSE.md for the repository's copyright and provenance
+statement and LICENSE-MIT for the MIT terms that apply to project-authored
+material.

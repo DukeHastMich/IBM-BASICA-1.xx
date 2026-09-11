@@ -270,8 +270,8 @@ BASICA_ENTRY_1:
 BASICA_ENTRY_2:
     call   MAKINT                                # 0007: E8 02 65
     retf                                         # 000A: CB
-ROM_CHECKSUM_FIXUP_BLOCK0:
-    .byte 0x5D                                  # 000B: 8 KiB checksum compensation byte
+OEM_ROM_CHECKSUM_BYTE_BLOCK0:
+    .byte 0x5D                                  # 000B: OEM 8 KiB ROM checksum byte (bank sum = 00h)
 ROM_CODE_000C:
     # C1.20 changes only the preceding compensation byte (5D->B2); code resumes here.
 L_000C:
@@ -9196,8 +9196,8 @@ L_4BDE:
     call   CONIA                                # 4BDF: E8 27 19
     pop    bx                                    # 4BE2: 5B
     ret                                          # 4BE3: C3
-ROM_CHECKSUM_FIXUP_BLOCK2:
-    .byte 0xF6                                  # 4BE4: 8 KiB checksum compensation byte
+OEM_ROM_CHECKSUM_BYTE_BLOCK2:
+    .byte 0xF6                                  # 4BE4: OEM 8 KiB ROM checksum byte (bank sum = 00h)
 L_4BE5:
     cmp    BYTE PTR ds:KEYSW,0x0                  # 4BE5: 80 3E 71 00 00
     je     L_4BEF                                # 4BEA: 74 03
@@ -14707,8 +14707,8 @@ L_7FAA:
     jmp    L_436B                                # 7FD9: E9 8F C3
 BYTES_FREE_TEXT:
     .asciz " Bytes free"
-ROM_CHECKSUM_FIXUP_BLOCK3:
-    .byte 0x14                                  # 7FE8: 8 KiB checksum compensation byte
+OEM_ROM_CHECKSUM_BYTE_BLOCK3:
+    .byte 0x14                                  # 7FE8: OEM 8 KiB ROM checksum byte (bank sum = 00h)
 L_7FE9:
     call   L_7091                                # 7FE9: E8 A5 F0
     .byte 0x33, 0xC9 # 7FEC
