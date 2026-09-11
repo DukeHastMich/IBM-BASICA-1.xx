@@ -1,0 +1,62 @@
+rom_offset_hex,symbol,role
+0000,ROM_ENTRY,ROM entry
+000B,ROM_CHECKSUM_FIXUP_BLOCK0,8 KiB block-0 checksum compensation
+08B6,READY,interpreter READY loop
+08D3,MAIN,main direct/program input loop
+09FB,LINKER,program line-link helper
+0A01,CHEAD,line-header scanner
+0A2D,SCNLIN,scan BASIC line number
+0A67,FNDLIN,find program line
+0A89,CRUNCH,tokenizer/cruncher
+0D2A,KRNSVC,tokenizer save-colon entry
+0D2C,KRNSAV,tokenizer save-byte helper
+0F1D,CHRGTR,advance BASIC text pointer
+0F1E,CHRGT2,secondary text-pointer entry
+1059,FCERR,Illegal function call error entry
+106B,LINGET,parse line number
+1727,FRMEVL,formula evaluator
+1728,FRMCHK,formula evaluator checked entry
+172A,LPOPER,formula operator loop
+18E7,EVAL,evaluate formula atom
+19EB,MAKUPL,load character and uppercase
+19ED,MAKUPS,uppercase AL if lowercase
+1B25,GETYPR,return BASIC value-type flags
+1B88,USR,USR function dispatch
+1BB9,SCNUSR,scan optional USR number and return USRTAB entry
+1BDD,DEFUSR,DEF USR handler
+1D2D,FINVLS,user-defined FN parameter-frame setup
+1F07,GETINT,read integer expression
+1F0A,GETIN2,read integer expression entry
+1F0D,INTFR2,convert FAC to integer
+1F19,GTBYTC,GETBYT after CHRGTR
+1F1C,GETBYT,read byte-valued expression
+1F1F,CONINT,integer-to-byte range check
+2BA5,OUTDO,character output
+2C5D,CRDONZ,conditional carriage return
+2C71,CRDO,carriage-return output path
+2CD5,GETSTK,stack-space check
+2DF4,SYNCHR,inline syntax-byte matcher
+2E06,SYNCON,SYNCHR continuation
+2E09,SYNERR,SYNCHR error path
+2F43,ISLET,ASCII letter test
+2F45,ISLET2,secondary letter test
+375B,DIMCON,DIM comma-loop continuation
+3766,DIM,DIM statement handler
+376E,PTRGET,variable-name/value pointer resolver
+3770,PTRGT1,PTRGET flag-setting entry
+3775,PTRGT2,PTRGET letter-check entry
+4AB4,IBM_GRAPHICS_MODE_INIT,machine-dependent graphics mode parameter initialization
+4BE4,ROM_CHECKSUM_FIXUP_BLOCK2,8 KiB block-2 checksum compensation
+50E8,KEYDSP,soft/function-key line display routine
+52E7,CLS,clear screen
+64CB,BLTU,block-transfer/upward move
+6507,POPHRT,pop BX then return helper
+6509,CONIA,convert AL to integer FAC
+650C,MAKINT,store BX as integer FAC
+6516,VALSNG,mark FAC single precision
+6550,LINPRT,print BASIC line number
+6BAD,FRCINT,force FAC to integer
+7B55,STROUT,print zero-terminated string
+7B75,SIGN,numeric sign determination
+7B75,SIGNS,numeric sign determination alias
+7FE8,ROM_CHECKSUM_FIXUP_BLOCK3,8 KiB block-3 checksum compensation

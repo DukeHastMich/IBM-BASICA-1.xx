@@ -1,0 +1,57 @@
+rom_offset_hex,symbol,role,evidence
+0000,ROM_ENTRY,ROM entry,direct ROM structure + exact rebuild
+08B6,READY,interpreter READY loop,GWMAIN family sequence match
+08D3,MAIN,main direct/program input loop,GWMAIN family sequence match
+09FB,LINKER,program line-link helper entry,GWMAIN family sequence match
+0A01,CHEAD,line-header scanner,GWMAIN family sequence match
+0A2D,SCNLIN,scan BASIC line number,GWMAIN family sequence match
+0A67,FNDLIN,find program line,GWMAIN family sequence match
+0A89,CRUNCH,tokenizer/cruncher,GWMAIN family sequence match
+0D2A,KRNSVC,tokenizer save colon entry,GWMAIN KRNSVC match
+0D2C,KRNSAV,tokenizer save-byte helper,GWMAIN KRNSAV match
+0D83,BAKSP,backspace/edit helper,source-family sequence match
+0F1D,CHRGTR,advance BASIC text pointer,source-family sequence match
+0F1E,CHRGT2,secondary text-pointer entry,source-family sequence match
+106B,LINGET,parse line number,source-family sequence match
+1727,FRMEVL,formula evaluator,GWEVAL exact control-flow match
+1728,FRMCHK,formula evaluator checked entry,GWEVAL exact match
+172A,LPOPER,formula operator loop,GWEVAL exact match
+18E7,EVAL,evaluate formula atom,GWEVAL call-position match
+19EB,MAKUPL,load character and uppercase,GWEVAL exact sequence match
+19ED,MAKUPS,uppercase AL if lowercase,GWEVAL exact sequence match
+1B25,GETYPR,return BASIC value type flags,source-family exact sequence match
+1F07,GETINT,read integer expression,GWEVAL exact sequence match
+1F0A,GETIN2,read integer expression entry,GWEVAL exact sequence match
+1F0D,INTFR2,convert FAC to integer,GWEVAL exact sequence match
+1F19,GTBYTC,GETBYT after CHRGTR,GWEVAL exact sequence match
+1F1C,GETBYT,read byte-valued expression,GWEVAL exact sequence match
+1F1F,CONINT,integer-to-byte range check,GWEVAL exact sequence match
+2267,DEL,program line deletion helper,source-family sequence match
+2435,DEPTR,program pointer adjustment helper,source-family sequence match
+2BA5,OUTDO,character output,source-family sequence match
+2C5D,CRDONZ,conditional carriage return,GIO86/source-family match
+2C71,CRDO,carriage-return output path,CRDONZ target + GIO86 role match
+2CD5,GETSTK,stack-space check,GWEVAL call-position + sequence match
+2D37,RUNC,run program helper,BIMISC/source-family match
+2DF4,SYNCHR,inline syntax-byte matcher,exact algorithm/source-family match
+2E06,SYNCON,SYNCHR continuation,source-family match
+2E09,SYNERR,SYNCHR error path,source-family match
+2F43,ISLET,ASCII letter test,BIPTRG call-position/source match
+2F45,ISLET2,secondary letter test,BIPTRG source match
+2FD6,ISFLIO,test current file I/O,BIMISC exact sequence + IBM hook
+3180,PINLIN,line-input routine,source-family sequence match
+36C1,ERREDT,edit/error recovery helper,READY/MAIN source-family match
+375B,DIMCON,DIM comma-loop continuation,BIPTRG exact sequence match
+3766,DIM,DIM statement handler,dispatch + BIPTRG exact match
+376E,PTRGET,variable-name/value pointer resolver,BIPTRG exact sequence match
+3770,PTRGT1,PTRGET flag-setting entry,BIPTRG exact match
+3775,PTRGT2,PTRGET letter-check entry,BIPTRG exact match
+44FB,PRGFIN,program/file finalization helper,READY source-family match
+4758,PROCHK,program-line validation helper,source-family sequence match
+4F2C,PTRGPS,current output column getter,CRDONZ call relationship + GIO86 role
+64CB,BLTU,block-transfer/upward move,source-family sequence match
+6550,LINPRT,print BASIC line number,source-family sequence match
+6BAD,FRCINT,force FAC to integer,MATH2 exact sequence match
+7B55,STROUT,print zero-terminated string,source-family sequence match
+7B75,SIGN,numeric sign determination,MATH1 exact sequence match
+7B75,SIGNS,numeric sign determination alias,MATH1 alias relationship

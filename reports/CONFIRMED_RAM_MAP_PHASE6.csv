@@ -1,0 +1,50 @@
+dseg_offset_hex,symbol,role,evidence
+0012,USRTAB,USR0..USR9 dispatch-address table,direct SCNUSR algorithm + later GWEVAL
+0028,ERRFLG,error/status flag,Phase 5
+0029,CRTWID,physical characters per screen line,C1.20 CLS delta + SCNDRV
+002E,CURLIN,current BASIC line number,Phase 5
+0030,TXTTAB,start of tokenized program text,Phase 5
+0048,BIOS_VIDEO_MODE,current BIOS video mode,INT 10h AH=0F result and SCREEN code; reconstructed semantic name
+006F,CNTOFL,console/output control flag,Phase 5
+0071,KEYSW,soft/function-key display flag,C1.20 Cartridge Required path + KEYDSP behavior
+008E,NAMCNT,extra variable-name character count,Phase 5
+008F,NAMBUF,extended variable-name buffer,Phase 5
+00B8,KBUF,tokenizer crunch buffer,Phase 5
+013E,KBFLEN,crunch-buffer length constant,Phase 5
+02FA,DIMFLG,DIM/PTRGET mode flag,Phase 5
+02FB,VALTYP,current FAC/value type,Phase 5
+02FC,DORES,tokenizer reserved-word state,Phase 5
+02FD,DONUM,tokenizer numeric-constant state,Phase 5
+0302,CONLO,one-byte numeric constant value used by SCNUSR,later GWEVAL exact sequence
+030A,MEMSIZ,top of BASIC memory,Phase 5
+031F,DEFTBL,default variable type table,Phase 5
+032F,FRETOP,string-space/free-memory boundary,Phase 5
+0331,TEMP3,formula/function temporary text pointer,Phase 5
+0339,SUBFLG,array/subscript permission/state flag,Phase 5
+033B,TEMP,general temporary text pointer,Phase 5
+033E,AUTFLG,AUTO line-number mode flag,Phase 5
+033F,AUTLIN,AUTO current line,Phase 5
+0341,AUTINC,AUTO line increment,Phase 5
+0343,SAVTXT,saved text pointer,Phase 5
+0349,DOT,current/edit line number state,Phase 5
+0350,SAVSEG,segment selected by DEF SEG / used by USR,DEF SEG + USR source correspondence
+0352,TEMP2,formula-evaluator text pointer,Phase 5
+0358,VARTAB,start of scalar variable table,Phase 5
+035E,DATPTR,READ/DATA pointer,Phase 5
+037A,PRMSTK,linked function parameter-stack block,GWEVAL FINVLS sequence
+037C,PRMLEN,current PARM1 byte length,GWEVAL FINVLS exact sequence
+037E,PARM1,active user-defined-function parameter block,GWEVAL transfer sequence
+03E4,PRMLN2,secondary parameter-block length,GWEVAL transfer sequence
+03E6,PARM2,secondary user-defined-function parameter block,GWEVAL transfer sequence
+044D,NOFUNS,nonzero while user-defined function evaluation active,GWEVAL exact sequence
+0450,FUNACT,active user-defined-function nesting count,GWEVAL exact sequence
+046B,CHNFLG,CHAIN-related state flag,Phase 5
+04A3,FACLO,FAC low word / integer value,Phase 5
+04A5,FACSGN,FAC sign/high mantissa area,Phase 5 semantic mapping
+04A6,FACEXP,FAC exponent byte,Phase 5 + C1.20 math changes
+04A8,FLGOVC,overflow-message suppression flag,Phase 5
+04E9,PTRFIL,current file/device data pointer,Phase 5
+0537,GXPOS,current/secondary graphics X coordinate,GENGRP SCAND exact algorithm
+0539,GYPOS,current/secondary graphics Y coordinate,GENGRP SCAND exact algorithm
+053B,GRPACY,graphics accumulator Y coordinate,GENGRP SCAND exact algorithm
+053D,GRPACX,graphics accumulator X coordinate,GENGRP SCAND exact algorithm

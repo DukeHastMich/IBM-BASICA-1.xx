@@ -1,0 +1,210 @@
+# VOGONS 80286 BIOS Page 4 — BIOS Archaeology Notes
+
+Date: 2026-09-10
+
+Primary source:
+https://www.vogons.org/viewtopic.php?t=60389&start=60
+
+Purpose: preserve the ROM donors, provenance, normalization decisions, and the emulator-relevant conclusions from the September 10 BIOS reverse-engineering pass. These ROMs are being treated as hardware-conformance references, not as templates for host-side fakery.
+
+## Why this batch matters
+
+This batch is unusually useful because it spans several independent BIOS vendors and several different 286 chipset families. That lets Virtual Machine Bench separate:
+
+1. standard AT/80286 expectations that recur across unrelated firmware;
+2. chipset-specific configuration behavior;
+3. board-specific wiring and ROM mapping;
+4. BIOS-family presentation and POST/SETUP behavior.
+
+The collection includes Award, AMI, Phoenix, and Epson firmware, with Headland HT12, Suntac ST62, Winbond W83C20x, Headland GC10x, VLSI/NCR, and other board-specific implementations represented. A hardware behavior that multiple unrelated BIOSes depend on is a strong candidate for the emulator's generic AT fabric contract. A behavior seen only in one chipset family must remain behind that motherboard/chipset implementation.
+
+All emulator-ready images below were derived from the user's uploaded archives. Original archives are preserved unchanged alongside these notes.
+
+## Source-page identifications
+
+- PC CHIPS M209 (previously archived separately): UMC UM82C206L, AMI BIOS 2.32, ID S286-6181-101590-K0.
+- S-286 Peacock: Award 286 Modular BIOS 3.01, source page dates it 04/30/87. The supplied photograph shows a Peacock S-286 Rev A board with a multi-chip STK-51xx glue/chipset set; do not assign it to Suntac ST62 solely because it is adjacent to the Suntac section.
+- Schneider Euro AT / AT40: Headland GC101A-PC + GC102-PC plus Schneider BIGJIM 50773. Page 4 identifies Phoenix firmware and notes Euro AT and Tower AT use the same BIOS; the uploaded image identifies itself as Schneider 80286 AT BIOS V2.03.
+- SIIG MiniSys 2000: Intel 286-12, AMIBIOS, Headland HT12/A, two 27C256 EPROMs, source-page BIOS string DH12-1422-061390-K0; maker ID 1422 is listed there as Labway Computer Co.
+- Unknown/JPN-like HT12 board: Harris 286-20, Headland HT12P-16/A, AMIBIOS 03/15/91, ID 20-0000-428022-00101111-031591-HT12.
+- Suntac generic 286: AMD 286-12, Suntac ST62BC00x, Award BIOS 3.03HL, two 27256 mask ROMs. The VOGONS post explicitly notes its 64K submission was an overdump of the already-known 3.03HL image.
+- Epson MAUI board / Equity LT-286: two M5M27C256AK EPROMs.
+- KT216WB 5/HI REV 2: Winbond W83C20x chipset; BIOS/version unidentified by the source page.
+- NCR 286: VLSI V8913BV C2951-0001 plus NCR 006-3500447 / 006-3500402; NCR BIOS V4.6 (1988).
+- Octek FOX II 286: the supplied photograph shows Octek FOX II 286 Rev 3.2 with Headland HT12/A and an AMD N80L286-16/S. The ROM identifies itself as an AMI HT-1X 286 BIOS dated 11/30/90.
+
+## Original archive integrity
+
+| Original archive | Bytes | CRC32 | SHA-1 | SHA-256 |
+| --- | --- | --- | --- | --- |
+| 286-S-286-Peacock.zip | 1053123 | 4EC07110 | e68a4ebb59042beddc8df77dca51f1353dbf75d5 | d6f610b12f717603522c55c334ff37db44c5b529daf169a841300d78ff833b65 |
+| epson_maui.zip | 21426 | 00777AC5 | 739d10dba1a2b56bf21231a7bcdd7a94b75a8aa5 | efd3465ed8cd03ee6860e3e40cf7cefddac6ff20158a895945942174a19ba26a |
+| KT216WB.zip | 47584 | E82D5A0B | 0108cdfa6f5a9d595a6757f153749b302a59f1b7 | 3c2d7ae99281d439529d795ba3ad527dccece6c8786430d5f84b53f9e23d7a4d |
+| 20-0000-428022-00101111-031591-HT12.zip | 41638 | 483DD7A2 | 3de24c342ce58c2d205d89075089e1ab74210c85 | 70b4f59c39030f204ef8b33efcbc41bed563288874cc37318d433d6a401eefef |
+| SIIG MiniSys 2000.zip | 50052 | FCD50404 | 5c2c57d1492c0a3a319cf52937317c500676c638 | 1058d9c7d2e45c6b77026e246024000fa658a14a4e8009b8375c3edfec78ca6f |
+| suntac 286 [Award 3.03HL].zip | 65551 | 63EE591D | 7cd7df31e3af57ec0345f2f1f1d1e1a7374451e1 | 488455006888df1a4b848abe17a3c7b4b9c3fd9034494e9c72a8a7ed76f23b0b |
+| 286-NCR.rar | 1579900 | E9258D0A | 7909fbe5737ef515ecd76a7c5013d64f95d4b4a7 | d1b8fffe84d62164cf05029ce8e8599d0f7822d7d7c71ad0b9e13941dd1a0406 |
+| bios schneider AT40 full tower286.zip | 58467 | F28F6B7A | de6be3ea273cba8094178db1f5838d85ebcbca5f | 1ef522430b671f9302dc71c1d2793a55fad9585b2414194e4b29e66eb2e590fb |
+| 286-Fox2.zip | 1408912 | B0EE9B5D | dc0e93ac2a6e6164d3ac267b285841180421ab87 | 7da16a1bc4728864d667f9eb0a37f0c749d60083904d772266aedac8b27faa8d |
+
+## Archive contents and normalization
+
+### `286-S-286-Peacock.zip`
+
+Contents:
+- `286-S-286-Peacock.jpg`
+- `286-S-286-Peacock.bin` — 131072 bytes
+- `286-S-286-Peacock-LO.BIN` — 65536 bytes
+- `286-S-286-Peacock-HI.BIN` — 65536 bytes
+
+Both lane files contain duplicated halves. Interleaving the lanes produces a 128K reconstruction whose 64K halves are identical. The canonical emulator-ready image is therefore the first 64K mapped copy, while the original archive preserves the overdump/provenance. Readable strings include `286 Modular BIOS Version 3.01` and `AWARD SOFTWARE CMOS SETUP`.
+
+### `epson_maui.zip`
+
+Contents:
+- `1K.BIN` — 32768 bytes
+- `1L.BIN` — 32768 bytes
+
+Interleaving `1L.BIN` as the even/low-address byte lane and `1K.BIN` as the odd/high-address byte lane yields readable firmware and a valid reset vector. The resulting image independently checks to zero modulo 256. Key string:
+`ROM Rev 1.18 09/01/89 Copyright (C) SEIKO EPSON Corp. 1989 All Rights Reserved`.
+
+### `KT216WB.zip`
+
+Contents:
+- `KT216WB-EVEN.BIN` — 32768 bytes
+- `KT216WB-ODD.BIN` — 32768 bytes
+
+Straight even/odd interleave yields a readable 64K AMI image. Strings include `WIN 286 BIOS (C)1990 American Megatrends Inc.`, `RUN SETUP UTILITY`, and AMI diagnostic/CMOS setup text.
+
+### `20-0000-428022-00101111-031591-HT12.zip`
+
+Contents:
+- `... high.BIN` — 32768 bytes
+- `... low.BIN` — 32768 bytes
+
+Interleaving low as even and high as odd yields a readable 64K AMI HT12 image. The image contains the exact board BIOS ID `20-0000-428022-00101111-031591-HT12`, AMI date 03/15/91, and explicit menu labels:
+- STANDARD CMOS SETUP
+- ADVANCED CMOS SETUP
+- ADVANCED CHIPSET SETUP
+- AUTO CONFIGURATION WITH BIOS DEFAULTS
+
+It also contains per-region ROM-shadow controls, including C000 through EC00 and system ROM shadowing.
+
+### `SIIG MiniSys 2000.zip`
+
+Contents:
+- `minisys2000 even.BIN` — 32768 bytes
+- `minisys2000 odd.BIN` — 32768 bytes
+
+For this dump, the byte lanes must be interleaved with the file labelled `odd` supplying even-address bytes and the file labelled `even` supplying odd-address bytes to reconstruct readable x86 firmware. Preserve the original labels unchanged; the normalization records the observed byte-lane orientation rather than silently renaming the donor files. Resulting image strings include `HT-11 286 BIOS` and AMI date 06/13/90.
+
+### `suntac 286 [Award 3.03HL].zip`
+
+The supplied 64K combined image is already correctly interleaved. Its 32K halves are byte-for-byte identical, confirming the VOGONS note that this submission is an overdump/mirrored form of the known Award 3.03HL firmware. Key strings include:
+- `286 Modular BIOS Version 3.03HL`
+- `Award Software Inc. - 10/20/87`
+- `AWARD SOFTWARE CMOS SETUP`
+- `PRESS F1 KEY TO CONTINUE OR CTRL-ALT ESC FOR SETUP`
+
+The preserved 64K linear image is safest for reproducing the donor's observed mapping; the mirroring fact is recorded rather than discarded.
+
+### `bios schneider AT40 full tower286.zip`
+
+Contains `BIOS.BIN` (65536), `F000.BIN` (32768), and `F800.BIN` (32768). `BIOS.BIN` is directly CPU-linear and checksum-clean modulo 256. It contains multilingual setup text and:
+- `SETUP Ver 1.50 - Copyright (C) 1988-90 Schneider Rdf. AG`
+- `80286 ROM BIOS PLUS Version 3.10 00`
+- `80286 AT BIOS V2.03`
+- `Copyright (C) 1985-1989 Phoenix Technologies Ltd.`
+
+This is a particularly valuable independent Phoenix-family check against AMI/Award assumptions.
+
+### `286-Fox2.zip`
+
+Contents:
+- `286-Fox2-EVEN.BIN` — 65536 bytes
+- `286-Fox2-ODD.BIN` — 65536 bytes
+- board photograph
+
+Both ROM lane dumps are duplicated halves. Interleaving EVEN/ODD produces a 128K reconstruction with identical 64K halves. The canonical emulator-ready image is one 64K mapped copy. Key strings include `HT-1X 286 BIOS` and AMI date 11/30/90. The board photo directly shows the Headland HT12/A chip and Octek FOX II 286 Rev 3.2 marking.
+
+### `286-NCR.rar`
+
+RAR headers were readable in the analysis environment and report:
+- `286-NCR-SBC_U113-27.BIN` — 32768 bytes
+- `286-NCR.jpg`
+- `286-NCR-SBC_U127-30.BIN` — 32768 bytes
+
+The current analysis container lacks an installed RAR decompression backend, so the ROM pair was **not** normalized or byte-analyzed in this pass. Do not invent a combined image. Preserve the RAR unchanged and revisit when a decompressor is available.
+
+## Normalized image integrity
+
+| Normalized image | Bytes | CRC32 | SHA-1 | SHA-256 | sum mod 256 | reset bytes @ end-16 |
+| --- | --- | --- | --- | --- | --- | --- |
+| EPSON_MAUI_Equity_LT286_linear_64K.bin | 65536 | E608D87D | fe6a21ca5babb315350cc7df40ac40282aa64a55 | b66e9c4205f21475c16806a8b425993153f307087712905d609cada5710ee5b4 | 00 | EA5BE000F0 |
+| KT216WB_Winbond_linear_64K.bin | 65536 | 48383465 | 601830d6f333d8a3f668d7797efd3640b7740664 | 0d1dbbd453d0b3d0f9b118350ff863a9d7888420a2c91c8d844b087aeab7a99b | B6 | EA5BE000F0 |
+| HT12_20-0000-428022_linear_64K.bin | 65536 | CBB3AAEE | c256d619fc11782d2fd5c33afb931cb83fba635d | c7db4e9f9e71bb1b1ccf73ef042d0c93ff05f8bb803cc37f06cf7f7d20e032e2 | 48 | EA5BE000F0 |
+| SIIG_MiniSys2000_HT12_linear_64K.bin | 65536 | FB8EE3D1 | 272ff1c101c6d8bb139137ea46a5f7b8303cbbb4 | a52dc903647247ff703950c4ea60e42314abc6a2daeea5e4e45c1ab23418c493 | C5 | EA5BE000F0 |
+| Suntac_Award_3.03HL_linear_64K.bin | 65536 | D284F582 | 88f8cc1fe4d03f14ee6b8e1b0f17ed42393b205e | 1888867dfdcdeb17e2e9313011c943dcdd71317a03cb5ef770cdb6386f47772b | 00 | EA5BE000F0 |
+| Schneider_AT40_Phoenix_2.03_linear_64K.bin | 65536 | EB703218 | 053f36eb6d7932fcdd15abd147206ec9258eed43 | b098a675799b167615d81fa049565a7726c95ec2550cbed75ed07a7fa5eef81a | 00 | EA5BE000F0 |
+| Peacock_S286_Award_3.01_effective_64K.bin | 65536 | B73894D4 | 0ece5e2454a253d36c2549001b3ed2fe27c20d16 | 8a4724de3a425eb04981f14d61fd5d298144fbe8d0fc06fd59502697c51debbe | 00 | EA5BE000F0 |
+| Octek_FOX_II_286_AMI_HT12_effective_64K.bin | 65536 | 4F9A4554 | 8812564fadbd9754d39db4377f842ce933d5be3c | 759a5c7006f0bb100c6e822f7c60deed6b00343ed77e4c20c6618ecb97130624 | EB | EA5BE000F0 |
+
+Every normalized 64K image in this batch exposes `EA 5B E0 00 F0` at the reset-vector location (the far jump to F000:E05B). That repeated reset entry across otherwise unrelated firmware is useful as a basic execution/mapping check, but it should not be mistaken for proof that the BIOS implementations are otherwise identical.
+
+## Cross-firmware observations relevant to VMB
+
+### 1. BIOSes become conformance tests
+
+The goal is not to special-case these ROMs. Booting them should force the emulated motherboard to satisfy the accesses the firmware actually performs. A hang or POST failure is evidence to inspect the CPU, AT fabric, chipset, or board-specific implementation.
+
+### 2. Multiple BIOS families reduce false conclusions
+
+The batch gives at least four independent firmware lineages:
+- Award
+- American Megatrends
+- Phoenix
+- Seiko Epson/OEM
+
+If the same observable behavior is required by several families on different chipsets, it is strong evidence for a generic AT/286 contract. If only HT12 firmware depends on a register path, keep it inside the Headland motherboard/chipset profile.
+
+### 3. HT12 comparison set
+
+The SIIG MiniSys 2000 and Octek FOX II normalized images have substantial aligned byte identity (about 62% of the 64K image), consistent with a shared AMI/Headland firmware lineage but board-specific customization. This pair is particularly useful for distinguishing reusable HT12 behavior from one-board quirks.
+
+The 03/15/91 HT12 image exposes a much richer AMI setup tree and explicit chipset configuration menu. It should be mined for Headland configuration-register writes and CMOS ownership before implementing an HT12 motherboard profile.
+
+### 4. ROM organization is part of hardware
+
+This batch includes:
+- normal even/odd 27C256 pairs;
+- lane labels whose apparent even/odd naming does not match CPU byte-lane reconstruction;
+- duplicated/overdumped EPROM contents;
+- a directly linear 64K image;
+- mirrored firmware.
+
+VMB must therefore model firmware sockets/chips and board decode rather than assuming every BIOS donor is a flat host-side `64K ROM`.
+
+### 5. POST and SETUP references
+
+These ROMs contain real period strings and menu structures for:
+- CMOS checksum and battery failures;
+- memory sizing/testing;
+- keyboard and 8042 errors;
+- diskette/HDD controller failures;
+- ROM checksum failures;
+- F1/DEL/F2/CTRL-ALT-ESC setup/continue behavior;
+- BIOS/video ROM shadowing;
+- standard/advanced CMOS pages;
+- chipset setup;
+- vendor-specific setup flows.
+
+They provide a much stronger source for Cromwell BIOS behavior than reproducing screenshots alone.
+
+## Next reverse-engineering targets
+
+1. Disassemble the reset/POST path of each canonical image and log guest-visible I/O accesses.
+2. Build a matrix of common PIC/PIT/DMA/8042/CMOS/A20/NMI behavior versus chipset-specific accesses.
+3. Compare the HT12 images first, because there are multiple independent board donors on the same chipset family.
+4. Use the Phoenix Schneider image as an independent check against AMI/Award-centric assumptions.
+5. Revisit the NCR pair when RAR extraction is available.
+6. Never transplant chipset register constants between unrelated motherboard profiles merely because the BIOS boots.

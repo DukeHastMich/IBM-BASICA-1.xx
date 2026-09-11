@@ -1,0 +1,35 @@
+IBM Cassette BASIC C1.10 reconstruction
+=========================================
+
+Original ROM: 32768 bytes
+MD5: eb28f0e8d3f641f2b58a3677b3b998cc
+SHA256: 3033d1a54c99d7e2aa1fc7c8c2e51a56ae1b61bf4e70e8aa580f43c43e37a63e
+
+Static control-flow recovery:
+  decoded instruction entry points: 11562
+  code-byte union: 24485 / 32768 (74.7%)
+  emitted as real GNU-as 16-bit x86 mnemonics: 10022
+  instruction starts held as raw bytes for exact encoding/overlap: 1540
+  symbolic control/data labels: 2017
+
+Recovered structural identities:
+  0025 STMDSP - statement/token dispatch table
+  0103 ALPTAB - A-Z reserved-word group index
+  0137 RESLST - encoded IBM BASIC reserved words
+  03B5 ERRTAB_TEXT - error-message corpus
+  069A RAM_INIT_IMAGE - startup data copied to RAM
+  0738 CODE_BODY_START - first large body of executable code
+  4C9B BASIC_TITLE_TEXT
+  4CBC BASIC_VERSION_TEXT
+  7E92 COLD_START
+  7FDC BYTES_FREE_TEXT
+
+Verification:
+  rebuilt ROM MD5: eb28f0e8d3f641f2b58a3677b3b998cc
+  byte-for-byte identical: YES
+
+Notes:
+  This is reconstructed source, not a claim to possess Microsoft's original source file.
+  Microsoft GW-BASIC's later-published IBM-compatible source was used only as an
+  archaeological naming/cross-reference aid for structures whose ROM correspondence
+  is directly demonstrable.
