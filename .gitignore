@@ -5,4 +5,5 @@
 *.rom
 *.bin
 *.lst
+*.zip
 .DS_Store
