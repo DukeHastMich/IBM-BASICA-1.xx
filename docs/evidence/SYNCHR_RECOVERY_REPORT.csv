@@ -1,0 +1,114 @@
+call_offset,inline_offset,byte,action
+0A42,0A45,EA,operand normalized
+0D9C,0D9F,E7,false opcode removed
+0E04,0E07,CC,false opcode removed
+1192,1195,E7,false opcode removed
+1205,1208,89,false opcode removed
+123F,1242,89,false opcode removed
+12CB,12CE,2C,false opcode removed
+1308,130B,CD,false opcode removed
+1450,1453,29,false opcode removed
+14E0,14E3,85,false opcode removed
+1582,1585,3B,operand normalized
+164F,1652,2C,split block
+171C,171F,E7,false opcode removed
+1723,1726,28,operand normalized
+1956,1959,28,false opcode removed
+196E,1971,29,false opcode removed
+19C3,19C6,29,false opcode removed
+1AA0,1AA3,2C,false opcode removed
+1BE1,1BE4,E7,false opcode removed
+1BF8,1BFB,53,false opcode removed
+1BFC,1BFF,45,false opcode removed
+1C00,1C03,47,false opcode removed
+1C08,1C0B,E7,false opcode removed
+1C38,1C3B,2C,false opcode removed
+1C6C,1C6F,28,false opcode removed
+1CB6,1CB9,2C,false opcode removed
+1CBF,1CC2,2C,false opcode removed
+1D28,1D2B,29,false opcode removed
+1E0A,1E0D,D1,false opcode removed
+1E4A,1E4D,2C,false opcode removed
+1E65,1E68,2C,false opcode removed
+1EA9,1EAC,2C,false opcode removed
+1ED1,1ED4,2C,false opcode removed
+1F49,1F4C,2C,false opcode removed
+2298,229B,2C,false opcode removed
+22F1,22F4,2C,false opcode removed
+22FB,22FE,2C,false opcode removed
+243F,2442,42,false opcode removed
+2443,2446,41,false opcode removed
+2447,244A,53,false opcode removed
+244B,244E,45,false opcode removed
+25A1,25A4,2C,false opcode removed
+291E,2921,28,false opcode removed
+2926,2929,2C,false opcode removed
+292D,2930,29,false opcode removed
+2A10,2A13,29,operand normalized
+2A34,2A37,2C,false opcode removed
+2A3E,2A41,2C,false opcode removed
+2A4E,2A51,29,false opcode removed
+2AD0,2AD3,28,false opcode removed
+2B00,2B03,2C,false opcode removed
+2B80,2B83,2C,false opcode removed
+2B87,2B8A,29,false opcode removed
+2EBA,2EBD,2C,false opcode removed
+2F5F,2F62,2C,false opcode removed
+2F77,2F7A,2C,false opcode removed
+3762,3765,2C,split block
+3AD1,3AD4,3B,false opcode removed
+3DE9,3DEC,2C,false opcode removed
+4042,4045,2C,false opcode removed
+4050,4053,2C,false opcode removed
+4086,4089,41,false opcode removed
+408A,408D,50,false opcode removed
+408E,4091,50,false opcode removed
+4092,4095,45,false opcode removed
+4096,4099,4E,false opcode removed
+409A,409D,44,false opcode removed
+40A5,40A8,55,false opcode removed
+40A9,40AC,54,false opcode removed
+40AD,40B0,50,false opcode removed
+40B1,40B4,55,false opcode removed
+40B5,40B8,54,false opcode removed
+40C0,40C3,42,false opcode removed
+40C4,40C7,4D,false opcode removed
+40CE,40D1,41,false opcode removed
+40D2,40D5,53,false opcode removed
+4187,418A,52,false opcode removed
+41E1,41E4,2C,false opcode removed
+41F1,41F4,41,false opcode removed
+43ED,43F0,24,false opcode removed
+43F1,43F4,28,false opcode removed
+441E,4421,29,split block
+44ED,44F0,2C,false opcode removed
+466B,466E,2C,false opcode removed
+467E,4681,2C,false opcode removed
+4785,4788,28,false opcode removed
+478D,4790,2C,false opcode removed
+4794,4797,29,false opcode removed
+4813,4816,2C,false opcode removed
+4887,488A,EA,false opcode removed
+4895,4898,2C,split block
+4899,489C,42,split block
+48A2,48A5,46,split block
+504F,5052,2C,false opcode removed
+51C4,51C7,2C,false opcode removed
+51E1,51E4,2C,false opcode removed
+51F5,51F8,2C,false opcode removed
+53AB,53AE,2C,false opcode removed
+53C6,53C9,2C,false opcode removed
+543F,5442,2C,false opcode removed
+5463,5466,2C,false opcode removed
+5484,5487,2C,split block
+549D,54A0,2C,split block
+55AF,55B2,2C,false opcode removed
+55B7,55BA,29,false opcode removed
+55CC,55CF,29,split block
+55D1,55D4,28,false opcode removed
+55D9,55DC,2C,false opcode removed
+55E9,55EC,DD,false opcode removed
+5701,5704,DD,false opcode removed
+5832,5835,2C,false opcode removed
+5DC0,5DC3,28,operand normalized
+5DD3,5DD6,29,operand normalized

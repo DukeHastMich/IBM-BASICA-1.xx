@@ -1,0 +1,114 @@
+call_offset,inline_offset,byte_hex,semantic,source_line,current_rendering
+0A42,0A45,EA,TK_MINUS,920,.byte TK_MINUS                              # 0A45: EA -- inline SYNCHR operand (MINUTK)
+0D9C,0D9F,E7,TK_EQUAL,1400,"out    0x52,ax                               # 0D9F: E7 52"
+0E04,0E07,CC,TK_TO,1455,int3                                         # 0E07: CC
+1192,1195,E7,TK_EQUAL,1956,"out    0x89,ax                               # 1195: E7 89"
+1205,1208,89,TK_GO_TO,2020,"mov    ax,bp                                 # 1208: 89 E8"
+123F,1242,89,TK_GO_TO,2045,".byte 0x89, 0x4B # 1242"
+12CB,12CE,2C,"','",2118,"sub    al,0x8b                               # 12CE: 2C 8B"
+1308,130B,CD,TK_THEN,2148,int    0x4b                                  # 130B: CD 4B
+1450,1453,29,')',2329,"sub    WORD PTR [bp+di+0x58],cx              # 1453: 29 4B 58"
+14E0,14E3,85,TK_INPUT,2406,"test   WORD PTR [si],di                      # 14E3: 85 3C"
+1582,1585,3B,';',2446,.byte 0x3B # 1585
+164F,1652,2C,"','",2480,".byte 0xE8, 0xA2, 0x17, 0x2C # 164F"
+171C,171F,E7,TK_EQUAL,2571,"out    0xe9,ax                               # 171F: E7 E9"
+1723,1726,28,'(',2575,.byte 0x28 # 1726
+1956,1959,28,'(',2780,"sub    BYTE PTR [si],bh                      # 1959: 28 3C"
+196E,1971,29,')',2790,"sub    WORD PTR [bp+di-0x79],dx              # 1971: 29 53 87"
+19C3,19C6,29,')',2832,"sub    bx,ax                                 # 19C6: 29 C3"
+1AA0,1AA3,2C,"','",2948,"sub    al,0xe8                               # 1AA3: 2C E8"
+1BE1,1BE4,E7,TK_EQUAL,3077,"out    0xe8,ax                               # 1BE4: E7 E8"
+1BF8,1BFB,53,'S',3086,push   bx                                    # 1BFB: 53
+1BFC,1BFF,45,'E',3088,inc    bp                                    # 1BFF: 45
+1C00,1C03,47,'G',3090,inc    di                                    # 1C03: 47
+1C08,1C0B,E7,TK_EQUAL,3094,"out    0xe8,ax                               # 1C0B: E7 E8"
+1C38,1C3B,2C,"','",3119,"sub    al,0xeb                               # 1C3B: 2C EB"
+1C6C,1C6F,28,'(',3143,"sub    BYTE PTR [bp+si],dh                   # 1C6F: 28 32"
+1CB6,1CB9,2C,"','",3173,"sub    al,0x53                               # 1CB9: 2C 53"
+1CBF,1CC2,2C,"','",3176,"sub    al,0xeb                               # 1CC2: 2C EB"
+1D28,1D2B,29,')',3225,".byte 0x29, 0xB0 # 1D2B"
+1E0A,1E0D,D1,TK_FN,3330,".byte 0xD1, 0xB0, 0x80, 0xA2 # 1E0D"
+1E4A,1E4D,2C,"','",3365,"sub    al,0xe8                               # 1E4D: 2C E8"
+1E65,1E68,2C,"','",3381,"sub    al,0xe8                               # 1E68: 2C E8"
+1EA9,1EAC,2C,"','",3419,"sub    al,0xe8                               # 1EAC: 2C E8"
+1ED1,1ED4,2C,"','",3439,"sub    al,0xe8                               # 1ED4: 2C E8"
+1F49,1F4C,2C,"','",3506,"sub    al,0xe8                               # 1F4C: 2C E8"
+2298,229B,2C,"','",3928,"sub    al,0xe8                               # 229B: 2C E8"
+22F1,22F4,2C,"','",3974,"sub    al,0xe8                               # 22F4: 2C E8"
+22FB,22FE,2C,"','",3979,"sub    al,0x52                               # 22FE: 2C 52"
+243F,2442,42,'B',4177,inc    dx                                    # 2442: 42
+2443,2446,41,'A',4179,inc    cx                                    # 2446: 41
+2447,244A,53,'S',4181,push   bx                                    # 244A: 53
+244B,244E,45,'E',4183,inc    bp                                    # 244E: 45
+25A1,25A4,2C,"','",4356,"sub    al,0x4b                               # 25A4: 2C 4B"
+291E,2921,28,'(',4839,"sub    al,ch                                 # 2921: 28 E8"
+2926,2929,2C,"','",4843,"sub    al,0xe8                               # 2929: 2C E8"
+292D,2930,29,')',4847,"sub    WORD PTR [bp-0x79],bx                 # 2930: 29 5E 87"
+2A10,2A13,29,')',4978,.byte 0x29 # 2A13
+2A34,2A37,2C,"','",5000,"sub    al,0xe8                               # 2A37: 2C E8"
+2A3E,2A41,2C,"','",5006,"sub    al,0x53                               # 2A41: 2C 53"
+2A4E,2A51,29,')',5013,"sub    WORD PTR [bp+di-0x18],dx              # 2A51: 29 53 E8"
+2AD0,2AD3,28,'(',5096,"sub    al,ch                                 # 2AD3: 28 E8"
+2B00,2B03,2C,"','",5122,"sub    al,0xe8                               # 2B03: 2C E8"
+2B80,2B83,2C,"','",5193,"sub    al,0xe8                               # 2B83: 2C E8"
+2B87,2B8A,29,')',5198,"sub    bx,ax                                 # 2B8A: 29 C3"
+2EBA,2EBD,2C,"','",5615,"sub    al,0xe8                               # 2EBD: 2C E8"
+2F5F,2F62,2C,"','",5713,"sub    al,0x74                               # 2F62: 2C 74"
+2F77,2F7A,2C,"','",5725,"sub    al,0x74                               # 2F7A: 2C 74"
+3762,3765,2C,"','",6434,".byte 0xE8, 0x8F, 0xF6, 0x2C # 3762"
+3AD1,3AD4,3B,';',6936,"cmp    ax,WORD PTR [bx-0x7426]               # 3AD4: 3B 87 DA 8B"
+3DE9,3DEC,2C,"','",7384,"sub    al,0x4b                               # 3DEC: 2C 4B"
+4042,4045,2C,"','",7697,"sub    al,0x3c                               # 4045: 2C 3C"
+4050,4053,2C,"','",7702,"sub    al,0x8a                               # 4053: 2C 8A"
+4086,4089,41,'A',7721,inc    cx                                    # 4089: 41
+408A,408D,50,'P',7723,push   ax                                    # 408D: 50
+408E,4091,50,'P',7725,push   ax                                    # 4091: 50
+4092,4095,45,'E',7727,inc    bp                                    # 4095: 45
+4096,4099,4E,'N',7729,dec    si                                    # 4099: 4E
+409A,409D,44,'D',7731,inc    sp                                    # 409D: 44
+40A5,40A8,55,'U',7737,push   bp                                    # 40A8: 55
+40A9,40AC,54,'T',7739,push   sp                                    # 40AC: 54
+40AD,40B0,50,'P',7741,push   ax                                    # 40B0: 50
+40B1,40B4,55,'U',7743,push   bp                                    # 40B4: 55
+40B5,40B8,54,'T',7745,push   sp                                    # 40B8: 54
+40C0,40C3,42,'B',7751,inc    dx                                    # 40C3: 42
+40C4,40C7,4D,'M',7753,dec    bp                                    # 40C7: 4D
+40CE,40D1,41,'A',7760,inc    cx                                    # 40D1: 41
+40D2,40D5,53,'S',7762,push   bx                                    # 40D5: 53
+4187,418A,52,'R',7866,push   dx                                    # 418A: 52
+41E1,41E4,2C,"','",7918,"sub    al,0x3c                               # 41E4: 2C 3C"
+41F1,41F4,41,'A',7927,inc    cx                                    # 41F4: 41
+43ED,43F0,24,TK_LOC,8190,"and    al,0xe8                               # 43F0: 24 E8"
+43F1,43F4,28,'(',8192,"sub    BYTE PTR [bp+di-0x75],dl              # 43F4: 28 53 8B"
+441E,4421,29,')',8198,".byte 0xD3, 0xE9, 0x29, 0x58, 0x9E, 0x5E, 0x87, 0xDE, 0x56, 0x9F, 0x50, 0x8A # 441F"
+44ED,44F0,2C,"','",8264,"sub    al,0x8a                               # 44F0: 2C 8A"
+466B,466E,2C,"','",8474,"sub    al,0xe8                               # 466E: 2C E8"
+467E,4681,2C,"','",8486,"sub    al,0xe8                               # 4681: 2C E8"
+4785,4788,28,'(',8609,"sub    al,ch                                 # 4788: 28 E8"
+478D,4790,2C,"','",8613,"sub    al,0xe8                               # 4790: 2C E8"
+4794,4797,29,')',8616,"sub    WORD PTR [bx+di-0x63],bx              # 4797: 29 59 9D"
+4813,4816,2C,"','",8683,"sub    al,0x3c                               # 4816: 2C 3C"
+4887,488A,EA,TK_MINUS,8709,jmp    0xe8fe:0xede8                         # 488A: EA E8 ED FE E8
+4895,4898,2C,"','",8710,".byte 0x76, 0xFF, 0x5A, 0x59, 0x74, 0x53, 0xE8, 0x5C, 0xE5, 0x2C, 0xE8, 0x58 # 488F"
+4899,489C,42,'B',8711,".byte 0xE5, 0x42, 0x75, 0x03, 0xE9, 0x60, 0x00, 0xE8, 0x4F, 0xE5, 0x46, 0x53 # 489B"
+48A2,48A5,46,'F',8711,".byte 0xE5, 0x42, 0x75, 0x03, 0xE9, 0x60, 0x00, 0xE8, 0x4F, 0xE5, 0x46, 0x53 # 489B"
+504F,5052,2C,"','",9365,"sub    al,0xe8                               # 5052: 2C E8"
+51C4,51C7,2C,"','",9584,"sub    al,0x3c                               # 51C7: 2C 3C"
+51E1,51E4,2C,"','",9595,"sub    al,0x3c                               # 51E4: 2C 3C"
+51F5,51F8,2C,"','",9605,"sub    al,0xe8                               # 51F8: 2C E8"
+53AB,53AE,2C,"','",9818,"sub    al,0x3c                               # 53AE: 2C 3C"
+53C6,53C9,2C,"','",9833,"sub    al,0xe8                               # 53C9: 2C E8"
+543F,5442,2C,"','",9890,"sub    al,0x3c                               # 5442: 2C 3C"
+5463,5466,2C,"','",9906,"sub    al,0x3c                               # 5466: 2C 3C"
+5484,5487,2C,"','",9915,".byte 0xE8, 0x6D, 0xD9, 0x2C, 0xE8, 0x91, 0xCA, 0x3C, 0x20, 0x73, 0xF2, 0x59 # 5484"
+549D,54A0,2C,"','",9917,".byte 0x0F, 0xE8, 0x54, 0xD9, 0x2C, 0xE8, 0x78, 0xCA, 0x3C, 0x20, 0x73, 0xD9 # 549C"
+55AF,55B2,2C,"','",10037,"sub    al,0xe8                               # 55B2: 2C E8"
+55B7,55BA,29,')',10042,"sub    WORD PTR [bx+si+0xa],bx               # 55BA: 29 58 0A"
+55CC,55CF,29,')',10048,".byte 0xE8, 0x05, 0x00, 0xE8, 0x25, 0xD8, 0x29, 0xC3 # 55C9"
+55D1,55D4,28,'(',10051,"sub    al,ch                                 # 55D4: 28 E8"
+55D9,55DC,2C,"','",10055,"sub    al,0xe8                               # 55DC: 2C E8"
+55E9,55EC,DD,TK_OFF,10064,fnsave [bp+si]                               # 55EC: DD 32
+5701,5704,DD,TK_OFF,10162,fnsave [bp+si]                               # 5704: DD 32
+5832,5835,2C,"','",10259,"sub    al,0xe8                               # 5835: 2C E8"
+5DC0,5DC3,28,'(',10569,.byte 0x28 # 5DC3
+5DD3,5DD6,29,')',10578,.byte 0x29 # 5DD6

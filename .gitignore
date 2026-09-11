@@ -1,0 +1,8 @@
+/build/*
+!/build/.gitkeep
+*.o
+*.elf
+*.rom
+*.bin
+*.lst
+.DS_Store
